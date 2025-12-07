@@ -68,14 +68,13 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginPost(@ModelAttribute("user") User user, Model model) {
-        boolean loginSuccessful = securityService.autologin(user.getUsername(), user.getPassword());
-        if (!loginSuccessful) {
-            model.addAttribute("error", "Your username and password is invalid.");
-            return "login";
-        }
-        return "redirect:/welcome";
+    	boolean loginSuccessful = securityService.autologin(user.getUsername(), user.getPassword());
+    	if (!loginSuccessful) {
+        	model.addAttribute("error", "Your username and password is invalid.");
+        	return "login";
+    	}
+    	return "redirect:/welcome";
     }
-
     @GetMapping("/welcome")
     public String welcome(Model model) {
         return "welcome";
