@@ -21,8 +21,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: "Run tests on main branch"
-        run: "mvn test"
+        run: mvn test
 
       - name: "Checkstyle"
-        run: "mnv checkstyle:checkstyle"
+        run: mvn checkstyle:checkstyle
 
